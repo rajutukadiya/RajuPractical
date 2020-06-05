@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewmodel"
+            type="com.rajutukadiya_practical.app.ui.login.viewmodel.LoginViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/mainLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp">
+
+        <TextView
+            android:id="@+id/txtLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="@string/login" />
+
+        <EditText
+            android:id="@+id/edtEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtLogin"
+            android:imeOptions="actionNext"
+            android:text="@={viewmodel.email}"
+            android:onTextChanged="@{viewmodel::onEmailChanged}"
+            android:inputType="textEmailAddress"
+            tools:ignore="Autofill,LabelFor" />
+
+        <EditText
+            android:id="@+id/edtPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edtEmail"
+            android:imeOptions="actionDone"
+            android:onTextChanged="@{viewmodel::onPasswordChanged}"
+            android:paddingStart="5dp"
+            android:text="@={viewmodel.password}"
+            android:inputType="textPassword"
+            tools:ignore="Autofill,LabelFor"
+            android:paddingLeft="5dp" />
+
+        <Button
+            android:id="@+id/btn_continue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edtPassword"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp"
+            android:enabled="@{viewmodel.btnSelected}"
+            android:onClick="@{()->viewmodel.login()}"
+            android:text="@string/login" />
+
+
+    </RelativeLayout>
+</layout>

@@ -1,7 +1,8 @@
-package com.rajutukadiya_practical.app
+package com.rajutukadiya_practical.app.home
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.rajutukadiya_practical.app.R
 
 class MainActivity : AppCompatActivity() {
 
@@ -9,4 +10,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
     }
+
+
 }
